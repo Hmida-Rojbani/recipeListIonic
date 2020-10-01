@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: 'AIzaSyB5KhsSWx5N7Jl80z76KchHk_Jt2-JjXiw',
+    apiKey: ' ',
     authDomain: 'recipelist20.firebaseapp.com',
     databaseURL: 'https://recipelist20.firebaseio.com',
     projectId: 'recipelist20',
