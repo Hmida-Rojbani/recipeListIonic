@@ -1,0 +1,47 @@
+<ion-header *ngIf="loadedRecipe">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/recipes"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{loadedRecipe.title}} </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDeleteRecipe()">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="loadedRecipe">
+<ion-grid class="ion-on-padding">
+  <ion-row>
+    <ion-col>
+      <ion-img [src]="loadedRecipe.imageUrl" ></ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h1 class="ion-text-center"> {{loadedRecipe.title}} </h1>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p> {{loadedRecipe.description}} </p>>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h3> Ingredients : </h3>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item *ngFor="let ig of loadedRecipe.ingredients">
+          {{ig}}
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
