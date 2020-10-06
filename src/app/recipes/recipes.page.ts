@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { AddPagePage } from '../add-page/add-page.page';
 import { Recipe } from '../models/recipe';
 import { FireRecipeService } from '../services/fire-recipe.service';
 
@@ -10,7 +12,8 @@ import { FireRecipeService } from '../services/fire-recipe.service';
 })
 export class RecipesPage implements OnInit {
   recipes: Observable<Recipe[]>;
-  constructor(private fireRecipe: FireRecipeService) { }
+  constructor(private fireRecipe: FireRecipeService,
+              private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.recipes = this.fireRecipe.getAllRecipes();
@@ -19,5 +22,14 @@ export class RecipesPage implements OnInit {
   ionViewWillEnter() {
     this.recipes = this.fireRecipe.getAllRecipes();
   }
+
+  async presentModal() {
+    const modal = await this.modalCtrl.create({
+      component: AddPagePage
+    });
+    return await modal.present();
+  }
+
+  
 
 }

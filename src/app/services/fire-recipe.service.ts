@@ -39,6 +39,10 @@ export class FireRecipeService {
     );
   }
 
+  addRecipe(recipe: Recipe){
+    return this.recipeCollection.add(recipe).then(res => {}, err => console.error(err));
+  }
+
   updateRecipe(recipeId: string, recipe: Recipe){
     return this.recipeCollection.doc(recipeId).update(recipe);
   }
